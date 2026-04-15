@@ -6,7 +6,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="https://giabao123123.github.io/trochoi/trochoi.css" />
+    <link
+      rel="stylesheet"
+      href="https://giabao123123.github.io/trochoi/trochoi.css"
+    />
     <link
       rel="apple-touch-icon"
       sizes="57x57"
@@ -780,7 +783,6 @@
         stopAllMusic();
       }
       let quiz = [
-        // ===== 1. LỄ HỘI – TÍN NGƯỠNG (8 CÂU) =====
         {
           question:
             "Không gian văn hóa nào của Đắk Lắk được UNESCO công nhận là Di sản phi vật thể?",
@@ -855,8 +857,6 @@
           ],
           correct: 2,
         },
-
-        // ===== 2. VĂN HÓA – CỘNG ĐỒNG (5 CÂU) =====
         {
           question: "Đắk Lắk có bao nhiêu dân tộc cùng sinh sống?",
           answers: ["32", "45", "47", "54"],
@@ -884,8 +884,6 @@
           answers: ["Khoảng 40%", "Khoảng 50%", "Khoảng 60%", "Khoảng 75%"],
           correct: 3,
         },
-
-        // ===== 3. ĐỊA LÝ – TỰ NHIÊN (5 CÂU) =====
         {
           question: "Đắk Lắk thuộc vùng nào của Việt Nam?",
           answers: ["Đông Bắc", "Tây Bắc", "Tây Nguyên", "Đồng bằng sông Hồng"],
@@ -921,8 +919,6 @@
           ],
           correct: 1,
         },
-
-        // ===== 4. DU LỊCH – ẨM THỰC (6 CÂU) =====
         {
           question: "Thác nước nổi tiếng tại Đắk Lắk là?",
           answers: [
@@ -968,8 +964,6 @@
           answers: ["Buôn Hồ", "Buôn Ma Thuột", "Krông Ana", "Ea Súp"],
           correct: 1,
         },
-
-        // ===== 5. KINH TẾ – PHÁT TRIỂN (6 CÂU) =====
         {
           question: "Sản phẩm nông nghiệp chủ lực của Đắk Lắk là?",
           answers: ["Lúa gạo", "Cà phê", "Chè", "Cao su"],
@@ -1018,17 +1012,16 @@
           correct: 1,
         },
       ];
-
       let toastTimer = null;
       quiz = quiz.sort(() => Math.random() - 0.5);
       let index = 0;
       let score = 0;
       let correctCount = 0;
-      let totalTime = 10 * 60; // 10 phút
+      let totalTime = 10 * 60;
       let timer;
-      const correctSound = new Audio("./amthanh/dung.mp3"); // đúng → "Yee!"
-      const wrongSound = new Audio("./amthanh/wrong.mp3"); // sai → "Ô ồ!"
-      const finishSound = new Audio("./amthanh/end.mp3"); // 🔊 âm thanh kết thúc
+      const correctSound = new Audio("./amthanh/dung.mp3");
+      const wrongSound = new Audio("./amthanh/wrong.mp3");
+      const finishSound = new Audio("./amthanh/end.mp3");
       function showToast(message, type) {
         const toast = document.getElementById("toast");
         if (toastTimer) {
@@ -1277,11 +1270,9 @@
         const total = quiz.length;
         const correctPercent = Math.round((correctCount / total) * 100);
         const wrongPercent = 100 - correctPercent;
-
         const timeUsed = 10 * 60 - totalTime;
         const minutes = Math.floor(timeUsed / 60);
         const seconds = timeUsed % 60;
-
         let rank, emoji;
         if (score >= total * 10 * 0.9) {
           rank = "Xuất sắc";
@@ -1296,10 +1287,8 @@
           rank = "Cần cố gắng";
           emoji = "💪";
         }
-
         const text = `
 🎮 QUIZ ĐẮK LẮK 🎮
-
 🏆 Điểm: ${score}
 ✅ Số câu đúng: ${correctCount}/${total}
 ❌ Số câu sai: ${wrongCount}
@@ -1307,10 +1296,8 @@
 📉 Tỷ lệ sai: ${wrongPercent}%
 ⏱ Thời gian: ${minutes} phút ${seconds} giây
 🎖 Xếp hạng: ${emoji} ${rank}
-
 🔥 Bạn có thể làm tốt hơn không? Thử ngay!
 `;
-
         if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard
             .writeText(text.trim())
